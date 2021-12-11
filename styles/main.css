@@ -22,8 +22,12 @@ label {
     font-size: 25px;
     border: 1px solid white;
     background-color: #4D4D4D;
-    padding: 3px;
+    padding: 5px;
     width: 50%;
+}
+
+select {
+    height: 30px;    
 }
 
 #plus
