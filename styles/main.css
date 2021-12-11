@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    width: 40%;
+    width: 55%;
     font-family: Open Sans;
     background-color: rgba(23,0,141,1);
     color: rgba(255,255,255,1);
@@ -13,14 +13,14 @@ footer {
 h1 {
     font-size: 30px;
     background-color: #0059DF;
-    border: 1px solid white;
+    border: 2px solid white;
     padding: 2px;
     text-align: center;
 }
 
 label {
     font-size: 25px;
-    border: 1px solid white;
+    border: 2px solid white;
     background-color: #4D4D4D;
     padding: 5px;
     width: 50%;
@@ -28,11 +28,42 @@ label {
 
 select {
     height: 30px;    
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
 }
+
+input {
+    margin-left: 5px;
+}
+.addCondition, .addAction {
+    background-color: rgba(23,0,141,1);
+    border: none;
+}
+
+.newRow {
+    font-size: 25px;
+    border: 1px solid white;
+    background-color: #4D4D4D;
+    padding: 5px;
+    width: fit-content;
+    margin-left: 40px;
+}
+
 
 #plus
 {
     color: #08FF00;
+}
+
+#minus
+{
+    color: #FF4D4D;
+}
+
+#minRow {
+    background-color: #4D4D4D;
+    border: none;
 }
 
 

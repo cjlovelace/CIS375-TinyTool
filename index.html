@@ -19,7 +19,7 @@
             <form id="table_builder">
                 <div class="columns">
                     <label for="num_cols">Number of Columns</label>
-                    <select id="num_cols" id="num_cols">
+                    <select id="num_cols">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -35,13 +35,13 @@
 
                 <div class="conditions">
                     <label for="conditions">Conditions</label>
-                    <i class="fas fa-plus-circle fa-lg" id="plus"></i><br>
+                    <button class="addCondition" type="button"><i class="fas fa-plus-circle fa-2x" id="plus"></i></button><br>
                 </div><br>
 
                 <div class="actions">
-                    <label for="actions">Actions</label>
-                    <i class="fas fa-plus-circle fa-lg" id="plus"></i><br>
-                </div>
+                    <label>Actions</label>
+                    <button class="addAction" type="button"><i class="fas fa-plus-circle fa-2x" id="plus"></i><br></button><br>
+                </div><br>
             </form>   
         </div>     
     </main>
