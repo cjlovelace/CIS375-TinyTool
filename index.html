@@ -15,11 +15,35 @@
     </header>
 
     <main>
-        <form id="table_builder">
-            <label for="num_cols">Number of Columns</label>
-            <input type="text" id="num_cols" name="num_cols"><br>
-            <input type="submit" id="cols_submit" onclick="assignColNum" value="OK">
-        </form>        
+        <div class="container">
+            <form id="table_builder">
+                <div class="columns">
+                    <label for="num_cols">Number of Columns</label>
+                    <select id="num_cols" id="num_cols">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select><br>
+                </div>
+
+                <div class="conditions">
+                    <label for="conditions">Conditions</label>
+                    <i class="fas fa-plus-circle" id="plus"></i><br>
+                </div>
+
+                <div class="actions">
+                    <label for="actions">Actions</label>
+                    <i class="fas fa-plus-circle" id="plus"></i><br>
+                </div>
+            </form>   
+        </div>     
     </main>
 
     <footer>
