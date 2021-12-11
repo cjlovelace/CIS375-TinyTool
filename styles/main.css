@@ -50,7 +50,11 @@ input {
     margin-left: 40px;
 }
 
+.createTable {
+    font-size: 15px;
+    color: white;
 
+}
 #plus
 {
     color: #08FF00;

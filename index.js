@@ -10,6 +10,8 @@ function start()
 
     addCond[0].addEventListener('click', addCondition);
     addAct[0].addEventListener('click', addAction);
+    addCond[0].addEventListener('click', enableButton);
+    addAct[0].addEventListener('click', enableButton);
     colNum.addEventListener('change', setColNum);
 }
 
@@ -55,6 +57,7 @@ function addCondition()
     minBtn.type="button";
     minBtn.name = "cond" + condCount;
     minBtn.addEventListener('click', removeRow);
+    minBtn.addEventListener('click', enableButton);
     minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
     minBtn.id = "minRow";
     condDiv.appendChild(minBtn);
@@ -104,6 +107,7 @@ function addAction()
     minBtn.type="button";
     minBtn.name = "Act" + actCount;
     minBtn.addEventListener('click', removeRow);
+    minBtn.addEventListener('click', enableButton);
     minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
     minBtn.id = "minRow";
     actDiv.appendChild(minBtn);
@@ -124,6 +128,24 @@ function removeRow()
     var rowToDelete = document.getElementById(this.name);
     rowToDelete.parentNode.removeChild(rowToDelete);
     rowCount -= 1;
+}
+
+function enableButton()
+{
+    var actNum = document.getElementsByClassName("actions");
+    var condNum = document.getElementsByClassName("conditions");
+    var createTblBtn = document.getElementById("createTable");
+
+    console.log("?");
+    console.log(actNum[0].children.length);
+    console.log(condNum[0].children.length);
+    if (actNum[0].children.length > 4 && condNum[0].children.length > 4)
+    {
+        createTblBtn.disabled = false;
+    }
+    else {
+        createTblBtn.disabled = true;
+    }
 }
 
 window.addEventListener("load", start);
