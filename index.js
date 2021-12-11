@@ -54,7 +54,7 @@ function addCondition()
     var minBtn = document.createElement("button");
     minBtn.type="button";
     minBtn.name = "cond" + condCount;
-    minBtn.addEventListener('click', removeRow(this.name));
+    minBtn.addEventListener('click', removeRow);
     minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
     minBtn.id = "minRow";
     condDiv.appendChild(minBtn);
@@ -103,7 +103,7 @@ function addAction()
     var minBtn = document.createElement("button");
     minBtn.type="button";
     minBtn.name = "Act" + actCount;
-    minBtn.addEventListener('click', removeRow(this.name));
+    minBtn.addEventListener('click', removeRow);
     minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
     minBtn.id = "minRow";
     actDiv.appendChild(minBtn);
@@ -119,8 +119,10 @@ function addAction()
     actCount += 1;
 }
 
-function removeRow(btn_name)
+function removeRow()
 {
+    var rowToDelete = document.getElementById(this.name);
+    rowToDelete.parentNode.removeChild(rowToDelete);
     rowCount -= 1;
 }
 
