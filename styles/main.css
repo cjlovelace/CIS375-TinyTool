@@ -35,6 +35,7 @@ select {
 
 input {
     margin-left: 5px;
+    margin-bottom: 10px;
 }
 .addCondition, .addAction {
     background-color: rgba(23,0,141,1);
@@ -53,8 +54,8 @@ input {
 .createTable {
     font-size: 15px;
     color: white;
-
 }
+
 #plus
 {
     color: #08FF00;
