@@ -23,21 +23,26 @@ function setColNum()
     colCount = colNum;
 
     var condRow = document.getElementsByClassName("newCondRow");
-
+    var actRow = document.getElementsByClassName("newActRow");
 
     for (let i = 0; i < condRow.length; i++)
     {
         var selects = condRow[i].getElementsByTagName('SELECT');
-        
+        var actSelects = actRow[i].getElementsByTagName('SELECT');
+
         if (colCount < selects.length)
         {
             var toSlice = Array.prototype.slice.call(selects);
+            var actSlice = Array.prototype.slice.call(actSelects);
             toSlice.splice(0, colCount);
+            actSlice.splice(0, colCount);
             
             for (let j = 0; j < toSlice.length; j++)
             {
                 var toDelete = document.getElementById(toSlice[j].id);
+                var actDelete = document.getElementById(actSlice[j].id);
                 toDelete.remove();
+                actDelete.remove();
             }
         }
 
