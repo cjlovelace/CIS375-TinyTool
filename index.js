@@ -125,6 +125,7 @@ function addCondition()
 
     var conInput = document.createElement("input");
     conInput.id = "cond" + condCount + "Input";
+    conInput.maxLength ="50";
     condDiv.appendChild(conInput);
 
     for (let i = 0; i < colCount; i++)
@@ -176,6 +177,7 @@ function addAction()
 
     var conInput = document.createElement("input");
     conInput.id = "Act" + actCount + "Input";
+    conInput.maxLength="50";
     actDiv.appendChild(conInput);
 
     for (let i = 0; i < colCount; i++)
