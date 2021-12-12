@@ -6,6 +6,7 @@ function start()
     var addCond = document.getElementsByClassName("addCondition");
     var addAct = document.getElementsByClassName("addAction");
     var colNum = document.getElementById("num_cols");
+    var tblBtn = document.getElementById("createTable");
     colCount = colNum.value;
 
     addCond[0].addEventListener('click', addCondition);
@@ -13,12 +14,41 @@ function start()
     addCond[0].addEventListener('click', enableButton);
     addAct[0].addEventListener('click', enableButton);
     colNum.addEventListener('change', setColNum);
+    tblBtn.addEventListener('click', buildTable);
 }
 
 function setColNum()
 {
     var colNum = document.getElementById("num_cols").value;
     colCount = colNum;
+
+    var condRow = document.getElementsByClassName("newCondRow");
+
+
+    for (let i = 0; i < condRow.length; i++)
+    {
+        var selects = condRow[i].getElementsByTagName('SELECT');
+        
+        if (colCount < selects.length)
+        {
+            var toSlice = Array.prototype.slice.call(selects);
+            toSlice.splice(0, colCount);
+            
+            for (let j = 0; j < toSlice.length; j++)
+            {
+                var toDelete = document.getElementById(toSlice[j].id);
+                toDelete.remove();
+            }
+        }
+
+        
+    }
+
+    
+    
+
+   
+
 }
 
 function addCondition()
@@ -28,7 +58,7 @@ function addCondition()
 
 
     var condDiv = document.createElement("div");
-    condDiv.className = "newRow";
+    condDiv.className = "newCondRow";
     condDiv.id = "cond" + condCount;
     condDiv.name = "Condition Number " + condCount;
     condDiv.innerText = "      Name of Row";
@@ -42,7 +72,7 @@ function addCondition()
     for (let i = 0; i < colCount; i++)
     {
         var newSelect = document.createElement("select");
-        newSelect.id = "Cond" + condCount + "Select" + i;
+        newSelect.id = "cond" + condCount + "Select" + i;
         for (let j = 0; j < dropdownVals.length; j++)
         {
             var option = document.createElement("option");
@@ -79,7 +109,7 @@ function addAction()
     var br = document.createElement("br");
 
     var actDiv = document.createElement("div");
-    actDiv.className = "newRow";
+    actDiv.className = "newActRow";
     actDiv.id = "Act" + actCount;
     actDiv.innerText = "      Name of Row";
     actDiv.style = "font-size:20px";
@@ -92,7 +122,7 @@ function addAction()
     for (let i = 0; i < colCount; i++)
     {
         var newSelect = document.createElement("select");
-        newSelect.id = "Act" + actCount + "Select" + i;
+        newSelect.id = "act" + actCount + "Select" + i;
         for (let j = 0; j < dropdownVals.length; j++)
         {
             var option = document.createElement("option");
@@ -136,9 +166,6 @@ function enableButton()
     var condNum = document.getElementsByClassName("conditions");
     var createTblBtn = document.getElementById("createTable");
 
-    console.log("?");
-    console.log(actNum[0].children.length);
-    console.log(condNum[0].children.length);
     if (actNum[0].children.length > 4 && condNum[0].children.length > 4)
     {
         createTblBtn.disabled = false;
@@ -146,6 +173,11 @@ function enableButton()
     else {
         createTblBtn.disabled = true;
     }
+}
+
+function buildTable()
+{
+
 }
 
 window.addEventListener("load", start);

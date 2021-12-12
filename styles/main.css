@@ -41,7 +41,7 @@ input {
     border: none;
 }
 
-.newRow {
+.newActRow, .newCondRow {
     font-size: 25px;
     border: 1px solid white;
     background-color: #4D4D4D;
