@@ -28,25 +28,69 @@ function setColNum()
     for (let i = 0; i < condRow.length; i++)
     {
         var selects = condRow[i].getElementsByTagName('SELECT');
-        var actSelects = actRow[i].getElementsByTagName('SELECT');
 
         if (colCount < selects.length)
         {
             var toSlice = Array.prototype.slice.call(selects);
-            var actSlice = Array.prototype.slice.call(actSelects);
             toSlice.splice(0, colCount);
-            actSlice.splice(0, colCount);
             
             for (let j = 0; j < toSlice.length; j++)
             {
                 var toDelete = document.getElementById(toSlice[j].id);
-                var actDelete = document.getElementById(actSlice[j].id);
                 toDelete.remove();
+            }
+        }
+        else if (colCount > selects.length)
+        {
+            for (let k = selects.length; k < colCount; k++)
+            {
+                var newSelect = document.createElement("select");
+                newSelect.id = condRow[i].id + "Select" + k;
+                for (let j = 0; j < dropdownVals.length; j++)
+                {
+                    var option = document.createElement("option");
+                    option.textContent = dropdownVals[j];
+                    newSelect.appendChild(option);
+                }
+
+                condRow[i].appendChild(newSelect);
+            }
+        }
+    
+        
+    }
+
+    for (let i = 0; i < actRow.length; i++)
+    {
+        var actSelects = actRow[i].getElementsByTagName('SELECT');
+
+        if (colCount < actSelects.length)
+        {
+            var actSlice = Array.prototype.slice.call(actSelects);
+            actSlice.splice(0, colCount);
+            
+            for (let j = 0; j < actSlice.length; j++)
+            {
+                var actDelete = document.getElementById(actSlice[j].id);
                 actDelete.remove();
             }
         }
+        else if (colCount > actSelects.length)
+        {
+            for (let k = actSelects.length; k < colCount; k++)
+            {
+                var newSelect = document.createElement("select");
+                newSelect.id = actRow[i].id + "Select" + k;
+                for (let j = 0; j < dropdownVals.length; j++)
+                {
+                    var option = document.createElement("option");
+                    option.textContent = dropdownVals[j];
+                    newSelect.appendChild(option);
+                }
 
-        
+                actRow[i].appendChild(newSelect);
+            }
+        }
     }
 
     
@@ -66,9 +110,18 @@ function addCondition()
     condDiv.className = "newCondRow";
     condDiv.id = "cond" + condCount;
     condDiv.name = "Condition Number " + condCount;
-    condDiv.innerText = "      Name of Row";
+    condDiv.innerText = "Name of Row";
     condDiv.style = "font-size:20px";
     condDiv.appendChild(br);
+
+    var minBtn = document.createElement("button");
+    minBtn.type="button";
+    minBtn.name = "cond" + condCount;
+    minBtn.addEventListener('click', removeRow);
+    minBtn.addEventListener('click', enableButton);
+    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
+    minBtn.id = "minRow";
+    condDiv.appendChild(minBtn);
 
     var conInput = document.createElement("input");
     conInput.id = "cond" + condCount + "Input";
@@ -88,14 +141,7 @@ function addCondition()
         condDiv.appendChild(newSelect);
     }
 
-    var minBtn = document.createElement("button");
-    minBtn.type="button";
-    minBtn.name = "cond" + condCount;
-    minBtn.addEventListener('click', removeRow);
-    minBtn.addEventListener('click', enableButton);
-    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
-    minBtn.id = "minRow";
-    condDiv.appendChild(minBtn);
+    
 
     var br = document.createElement("br");
     if (condCount == 0)
@@ -116,9 +162,18 @@ function addAction()
     var actDiv = document.createElement("div");
     actDiv.className = "newActRow";
     actDiv.id = "Act" + actCount;
-    actDiv.innerText = "      Name of Row";
+    actDiv.innerText = "Name of Row";
     actDiv.style = "font-size:20px";
     actDiv.appendChild(br);
+
+    var minBtn = document.createElement("button");
+    minBtn.type="button";
+    minBtn.name = "Act" + actCount;
+    minBtn.addEventListener('click', removeRow);
+    minBtn.addEventListener('click', enableButton);
+    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
+    minBtn.id = "minRow";
+    actDiv.appendChild(minBtn);
 
     var conInput = document.createElement("input");
     conInput.id = "Act" + actCount + "Input";
@@ -137,15 +192,6 @@ function addAction()
 
         actDiv.appendChild(newSelect);
     }
-
-    var minBtn = document.createElement("button");
-    minBtn.type="button";
-    minBtn.name = "Act" + actCount;
-    minBtn.addEventListener('click', removeRow);
-    minBtn.addEventListener('click', enableButton);
-    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
-    minBtn.id = "minRow";
-    actDiv.appendChild(minBtn);
 
     var br = document.createElement("br");
     if (actCount == 0)
