@@ -10,9 +10,11 @@ footer {
     text-align: center;
 }
 
+
 h1 {
     font-size: 30px;
-    background-color: #0059DF;
+    color: black;
+    background-color: #FFCB05;
     border: 2px solid white;
     padding: 2px;
     text-align: center;
@@ -41,15 +43,19 @@ input {
 table, #table_title, th, td{
     border: 1px solid white;
     padding: 10px;
-    font-size: 20px;
-}
-
-#table_title {
     font-size: 25px;
 }
 
+#table_title {
+    font-size: 30px;
+    font:bold;
+}
+
 #header, #rule_number {
-    background-color: black;
+    background-color: #FFCB05;
+    color: black;
+    font-size: 25px;
+    font: bold;
 }
 
 #rule_number, td {
