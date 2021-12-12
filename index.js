@@ -214,13 +214,16 @@ function enableButton()
 {
     var actNum = document.getElementsByClassName("actions");
     var condNum = document.getElementsByClassName("conditions");
+    var actRowNum = document.getElementsByClassName("newActRow").length;
+    var condRowNum = document.getElementsByClassName("newCondRow").length;
     var createTblBtn = document.getElementById("createTable");
 
     if (actNum[0].children.length > 4 && condNum[0].children.length > 4)
     {
         createTblBtn.disabled = false;
     }
-    else {
+    else if (actRowNum == 0 || condRowNum == 0)
+    {
         createTblBtn.disabled = true;
     }
 }
