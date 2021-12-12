@@ -103,105 +103,115 @@ function setColNum()
 function addCondition()
 {
     var condRow = document.getElementsByClassName("conditions");
+    var condRowNum = document.getElementsByClassName("newCondRow").length;
     var br = document.createElement("br");
 
 
-    var condDiv = document.createElement("div");
-    condDiv.className = "newCondRow";
-    condDiv.id = "cond" + condCount;
-    condDiv.name = "Condition Number " + condCount;
-    condDiv.innerText = "Name of Row";
-    condDiv.style = "font-size:20px";
-    condDiv.appendChild(br);
-
-    var minBtn = document.createElement("button");
-    minBtn.type="button";
-    minBtn.name = "cond" + condCount;
-    minBtn.addEventListener('click', removeRow);
-    minBtn.addEventListener('click', enableButton);
-    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
-    minBtn.id = "minRow";
-    condDiv.appendChild(minBtn);
-
-    var conInput = document.createElement("input");
-    conInput.id = "cond" + condCount + "Input";
-    conInput.maxLength ="50";
-    condDiv.appendChild(conInput);
-
-    for (let i = 0; i < colCount; i++)
+    if (condRowNum < 25)
     {
-        var newSelect = document.createElement("select");
-        newSelect.id = "cond" + condCount + "Select" + i;
-        for (let j = 0; j < dropdownVals.length; j++)
-        {
-            var option = document.createElement("option");
-            option.textContent = dropdownVals[j];
-            newSelect.appendChild(option);
-        }
-
-        condDiv.appendChild(newSelect);
-    }
-
+        var condDiv = document.createElement("div");
+        condDiv.className = "newCondRow";
+        condDiv.id = "cond" + condCount;
+        condDiv.name = "Condition Number " + condCount;
+        condDiv.innerText = "Name of Row";
+        condDiv.style = "font-size:20px";
+        condDiv.appendChild(br);
     
-
-    var br = document.createElement("br");
-    if (condCount == 0)
-    {
-        condRow[0].appendChild(br);
+        var minBtn = document.createElement("button");
+        minBtn.type="button";
+        minBtn.name = "cond" + condCount;
+        minBtn.addEventListener('click', removeRow);
+        minBtn.addEventListener('click', enableButton);
+        minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
+        minBtn.id = "minRow";
+        condDiv.appendChild(minBtn);
+    
+        var conInput = document.createElement("input");
+        conInput.id = "cond" + condCount + "Input";
+        conInput.maxLength ="50";
+        condDiv.appendChild(conInput);
+    
+        for (let i = 0; i < colCount; i++)
+        {
+            var newSelect = document.createElement("select");
+            newSelect.id = "cond" + condCount + "Select" + i;
+            for (let j = 0; j < dropdownVals.length; j++)
+            {
+                var option = document.createElement("option");
+                option.textContent = dropdownVals[j];
+                newSelect.appendChild(option);
+            }
+    
+            condDiv.appendChild(newSelect);
+        }
+    
+        
+    
+        var br = document.createElement("br");
+        if (condCount == 0)
+        {
+            condRow[0].appendChild(br);
+        }
+    
+        condRow[0].appendChild(condDiv);
+        condCount += 1;
     }
-
-    condRow[0].appendChild(condDiv);
-    condCount += 1;
+  
 }
 
 function addAction()
 {
     var actRow = document.getElementsByClassName("actions");
+    var actRowNum = document.getElementsByClassName("newActRow").length;
     var br = document.createElement("br");
 
-    var actDiv = document.createElement("div");
-    actDiv.className = "newActRow";
-    actDiv.id = "Act" + actCount;
-    actDiv.innerText = "Name of Row";
-    actDiv.style = "font-size:20px";
-    actDiv.appendChild(br);
-
-    var minBtn = document.createElement("button");
-    minBtn.type="button";
-    minBtn.name = "Act" + actCount;
-    minBtn.addEventListener('click', removeRow);
-    minBtn.addEventListener('click', enableButton);
-    minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
-    minBtn.id = "minRow";
-    actDiv.appendChild(minBtn);
-
-    var conInput = document.createElement("input");
-    conInput.id = "Act" + actCount + "Input";
-    conInput.maxLength="50";
-    actDiv.appendChild(conInput);
-
-    for (let i = 0; i < colCount; i++)
+    if (actRowNum < 25)
     {
-        var newSelect = document.createElement("select");
-        newSelect.id = "act" + actCount + "Select" + i;
-        for (let j = 0; j < dropdownVals.length; j++)
+        var actDiv = document.createElement("div");
+        actDiv.className = "newActRow";
+        actDiv.id = "Act" + actCount;
+        actDiv.innerText = "Name of Row";
+        actDiv.style = "font-size:20px";
+        actDiv.appendChild(br);
+    
+        var minBtn = document.createElement("button");
+        minBtn.type="button";
+        minBtn.name = "Act" + actCount;
+        minBtn.addEventListener('click', removeRow);
+        minBtn.addEventListener('click', enableButton);
+        minBtn.innerHTML = '<i class="fas fa-minus-circle fa-2x" id="minus"></i>';
+        minBtn.id = "minRow";
+        actDiv.appendChild(minBtn);
+    
+        var conInput = document.createElement("input");
+        conInput.id = "Act" + actCount + "Input";
+        conInput.maxLength="50";
+        actDiv.appendChild(conInput);
+    
+        for (let i = 0; i < colCount; i++)
         {
-            var option = document.createElement("option");
-            option.textContent = dropdownVals[j];
-            newSelect.appendChild(option);
+            var newSelect = document.createElement("select");
+            newSelect.id = "act" + actCount + "Select" + i;
+            for (let j = 0; j < dropdownVals.length; j++)
+            {
+                var option = document.createElement("option");
+                option.textContent = dropdownVals[j];
+                newSelect.appendChild(option);
+            }
+    
+            actDiv.appendChild(newSelect);
         }
-
-        actDiv.appendChild(newSelect);
+    
+        var br = document.createElement("br");
+        if (actCount == 0)
+        {
+            actRow[0].appendChild(br);
+        }
+    
+        actRow[0].appendChild(actDiv);
+        actCount += 1;
     }
-
-    var br = document.createElement("br");
-    if (actCount == 0)
-    {
-        actRow[0].appendChild(br);
-    }
-
-    actRow[0].appendChild(actDiv);
-    actCount += 1;
+   
 }
 
 function removeRow()
