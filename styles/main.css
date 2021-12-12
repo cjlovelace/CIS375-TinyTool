@@ -2,7 +2,7 @@ body {
     margin: auto;
     width: 55%;
     font-family: Open Sans;
-    background-color: rgba(23,0,141,1);
+    background-color: #00274C;
     color: rgba(255,255,255,1);
 }
 
@@ -21,7 +21,7 @@ h1 {
 label {
     font-size: 25px;
     border: 2px solid white;
-    background-color: #4D4D4D;
+    background-color: #383838;
     padding: 5px;
     width: 50%;
 }
@@ -37,15 +37,34 @@ input {
     margin-left: 5px;
     margin-bottom: 10px;
 }
+
+table, #table_title, th, td{
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#table_title {
+    font-size: 25px;
+}
+
+#header, #rule_number {
+    background-color: black;
+}
+
+#rule_number, td {
+    text-align: center;
+}
+
 .addCondition, .addAction {
-    background-color: rgba(23,0,141,1);
+    background-color: #00274C;
     border: none;
 }
 
 .newActRow, .newCondRow {
     font-size: 25px;
     border: 1px solid white;
-    background-color: #4D4D4D;
+    background-color: #383838;
     padding: 5px;
     width: fit-content;
     margin-left: 40px;
@@ -67,7 +86,7 @@ input {
 }
 
 #minRow {
-    background-color: #4D4D4D;
+    background-color: #383838;
     border: none;
 }
 

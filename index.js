@@ -257,6 +257,7 @@ function buildTable()
     head2.id="header";
     row1.appendChild(head1);
     row1.appendChild(head2);
+    row2.id="header";
     head3.innerHTML = "Conditions";
     head3.id="header";
 
@@ -268,6 +269,7 @@ function buildTable()
     {
         var ruleNum = document.createElement('td');
         ruleNum.innerHTML = i;
+        ruleNum.id = "rule_number";
         row2.appendChild(ruleNum);
         console.log(i);
     }
@@ -302,11 +304,13 @@ function buildTable()
     var head1 = document.createElement('th');
 
     head1.innerHTML = "Actions";
+    head1.id="header";
     row1.appendChild(head1);
     for (let i = 1; i <= colCount; i++)
     {
         var ruleNum = document.createElement('td');
         ruleNum.innerHTML = i;
+        ruleNum.id = "rule_number";
         row1.appendChild(ruleNum);
     }
     tHead2.appendChild(row1);
