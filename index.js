@@ -1,4 +1,4 @@
-var colCount, condCount = 0, actCount = 0, rowCount = 0;
+var colCount, condCount = 0, actCount = 0;
 var dropdownVals = ["-", "T", "F"];
 
 function start()
@@ -150,7 +150,6 @@ function addCondition()
     }
 
     condRow[0].appendChild(condDiv);
-    rowCount += 1;
     condCount += 1;
 }
 
@@ -200,7 +199,6 @@ function addAction()
     }
 
     actRow[0].appendChild(actDiv);
-    rowCount += 1;
     actCount += 1;
 }
 
@@ -208,7 +206,6 @@ function removeRow()
 {
     var rowToDelete = document.getElementById(this.name);
     rowToDelete.parentNode.removeChild(rowToDelete);
-    rowCount -= 1;
 }
 
 function enableButton()
@@ -228,7 +225,114 @@ function enableButton()
 
 function buildTable()
 {
+    var tableDiv = document.getElementsByClassName("output");
+    tableDiv[0].innerHTML="";
+    var tableTitle = document.getElementById("title").value;
+    var condRows = document.getElementsByClassName("newCondRow");
+    var actRows = document.getElementsByClassName("newActRow");
 
+    var table = document.createElement('table');
+    var tHead = document.createElement('thead');
+    var tHead2 = document.createElement('thead');
+    var tBody = document.createElement('tbody');
+    var tBody2 = document.createElement('tbody');
+    var title = document.createElement('caption');
+    title.innerHTML=tableTitle;
+    title.id = "table_title";
+    table.appendChild(title);
+
+    table.appendChild(tHead);
+    table.appendChild(tBody);
+
+    var row1 = document.createElement('tr');
+    var row2 = document.createElement('tr');
+    var head1 = document.createElement('th');
+    var head2 = document.createElement('th');
+    var head3 = document.createElement('th');
+
+    head1.innerHTML = "";
+    head2.id="buffer";
+    head2.innerHTML = "Rules";
+    head2.colSpan = colCount;
+    head2.id="header";
+    row1.appendChild(head1);
+    row1.appendChild(head2);
+    head3.innerHTML = "Conditions";
+    head3.id="header";
+
+    row1.appendChild(head1);
+    row1.appendChild(head2);
+    row2.appendChild(head3);
+    console.log(colCount);
+    for (let i = 1; i <= colCount; i++)
+    {
+        var ruleNum = document.createElement('td');
+        ruleNum.innerHTML = i;
+        row2.appendChild(ruleNum);
+        console.log(i);
+    }
+
+
+
+    tHead.appendChild(row1);
+    tHead.appendChild(row2);
+
+    for (let i = 0; i < condRows.length; i++)
+    {
+        var input = document.getElementById(condRows[i].id + "Input").value;
+        var selects = condRows[i].getElementsByTagName('SELECT');
+        var colRow = document.createElement('tr');
+        var colData = document.createElement('td');
+        colData.innerHTML = input;
+        colRow.appendChild(colData);
+        
+        for (let j = 0; j < selects.length; j++)
+        {
+            var selectData = document.createElement('td');
+            selectData.innerHTML = selects[j].value;
+            colRow.appendChild(selectData);
+            
+        }
+        tBody.appendChild(colRow);
+        table.appendChild(tBody);
+    }
+
+
+    var row1 = document.createElement('tr');
+    var head1 = document.createElement('th');
+
+    head1.innerHTML = "Actions";
+    row1.appendChild(head1);
+    for (let i = 1; i <= colCount; i++)
+    {
+        var ruleNum = document.createElement('td');
+        ruleNum.innerHTML = i;
+        row1.appendChild(ruleNum);
+    }
+    tHead2.appendChild(row1);
+    table.append(tHead2);
+  
+    for (let i = 0; i < actRows.length; i++)
+    {
+        var input = document.getElementById(actRows[i].id + "Input").value;
+        var selects = actRows[i].getElementsByTagName('SELECT');
+        var colRow = document.createElement('tr');
+        var colData = document.createElement('td');
+        colData.innerHTML = input;
+        colRow.appendChild(colData);
+        
+        for (let j = 0; j < selects.length; j++)
+        {
+            var selectData = document.createElement('td');
+            selectData.innerHTML = selects[j].value;
+            colRow.appendChild(selectData);
+            
+        }
+        tBody2.appendChild(colRow);
+    } 
+    table.appendChild(tBody2);
+
+    tableDiv[0].appendChild(table);
 }
 
 window.addEventListener("load", start);
