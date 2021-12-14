@@ -10,12 +10,12 @@ footer {
     text-align: center;
 }
 
-a {
+#title_link {
     color: black;
     text-decoration: none;
 }
 
-a:visited {
+#title_link:visited {
     color:black;
 }
 
