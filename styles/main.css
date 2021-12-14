@@ -104,14 +104,29 @@ table, #table_title, th, td{
     color: #08FF00;
 }
 
+#plus:hover
+{
+    color: aqua;
+}
+
 #minus
 {
     color: #FF4D4D;
 }
 
+#minus:hover
+{
+    color: #D86018;
+}
+
 #back
 {
     color: #D86018;
+}
+
+#back:hover
+{
+    color: #702082;
 }
 
 #minRow {
