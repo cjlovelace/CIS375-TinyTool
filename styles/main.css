@@ -95,6 +95,11 @@ table, #table_title, th, td{
     color: #FF4D4D;
 }
 
+#back
+{
+    color: #D86018;
+}
+
 #minRow {
     background-color: #383838;
     border: none;
