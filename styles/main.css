@@ -19,12 +19,11 @@ footer {
     color:black;
 }
 
-
 h1 {
     font-size: 30px;
     color: black;
     background-color: #FFCB05;
-    border: 2px solid white;
+    border: 3px solid white;
     padding: 2px;
     text-align: center;
 }
@@ -35,10 +34,11 @@ h3 {
 
 label {
     font-size: 25px;
-    border: 2px solid white;
+    border: 3px solid white;
     background-color: #383838;
     padding: 5px;
     width: 50%;
+    border-radius: 100px;
 }
 
 select {
@@ -87,11 +87,12 @@ table, #table_title, th, td{
 
 .newActRow, .newCondRow {
     font-size: 25px;
-    border: 1px solid white;
+    border: 2px solid white;
     background-color: #383838;
     padding: 5px;
     width: fit-content;
     margin-left: 40px;
+    border-radius: 12px;
 }
 
 .createTable {
@@ -102,6 +103,8 @@ table, #table_title, th, td{
 #plus
 {
     color: #08FF00;
+    box-shadow: 0 3px #999;
+    border-radius: 15px;
 }
 
 #plus:hover
@@ -109,19 +112,36 @@ table, #table_title, th, td{
     color: aqua;
 }
 
+#plus:active 
+{
+    color: aqua;
+    box-shadow: 0 3px rgb(51, 51, 51);
+    transform: translateY(4px);
+    border-radius: 15px;
+}
+
 #minus
 {
     color: #FF4D4D;
+    box-shadow: 0 3px #999;
+    border-radius: 15px;
 }
 
 #minus:hover
 {
-    color: orange;
+    color: #CE0F3D;
+}
+#minus:active 
+{
+    color: #CE0F3D;
+    box-shadow: 0 3px rgb(51, 51, 51);
+    transform: translateY(4px);
+    border-radius: 15px;
 }
 
 #back
 {
-    color: #D86018;
+    color: #CE0F3D;
 }
 
 #back:hover
@@ -137,14 +157,47 @@ table, #table_title, th, td{
 #createTable, #help {
     padding: 8px 16px;
     font-weight: bold;
+    border-radius: 100px;
+    border: 5px solid #383838;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
 }
+
+#help span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#help:hover span {
+    padding-right: 15px;
+}
+
+#help:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#help span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+} 
 
 #num_cols {
     height: 35px;
+    border-radius: 3px;
 }
 
 #title {
-    height: 20px;
+    height: 22px;
+    width: 200px;
+    border-radius: 5px;
 }
 
 #helpTab
@@ -184,5 +237,3 @@ table, #table_title, th, td{
     background-color: #f1f1f1;
     color: black;
   } 
-
-
