@@ -18,6 +18,8 @@
         <div class="container">
             <center><h2>Questions? Help?</h2></center>
             Click on the panels below to find your answers.
+
+            <!--Collapsible panels referenced from: https://www.w3schools.com/howto/howto_js_collapsible.asp -->
             <button type="button" class="collapsible"><h3>What is a decision table?</h3></button>
             <div class="content">
               <p><b>Hello and Welcome to the Decision Table Builder Tiny Tool!</b></p>
@@ -31,6 +33,48 @@
             <div class="content">
               <p>This Tiny Tool is used for building your own decision table.</p>
               <p>The website has a point and click interface, so you can use your mouse or keyboard to operate it.</p>
+            <h4>Changing Title of Table</h4>
+                <label for="tbl_title" id="demo">Title of Table</label>
+                <input name="tbl_title" id="title" maxlength="50"><br>
+                <p>The title can be entered in the "Title of Table" text box and after pressing the "Build Table" button, the table will be titled with user input.</p><hr>
+            <h4>Defining Number of Columns</h4>
+                <p>The user can select the number of columns for each row in the decision table through the 'Number of Columns' dropdown menu.</p>
+                <label for="num_cols" id="demo">Number of Columns</label>
+                <select id="num_cols">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+                <p>Changing the number of columns will automatically update all rows within the builder, adding or removing the number of dropdown menus as specified.</p>
+                <p>Note: <i>The maximum number of columns for the decision table is 10. The minimum number of columns is 1.</i></p><hr>
+            <h4>Adding New Actions or Conditions</h4>
+            <p>The user can manually add up to 25 rows of actions and 25 rows of conditions.</p>
+                <label for="conditions" id="demo">Conditions</label>
+                <button class="addCondition"><i class="fas fa-plus-circle fa-2x" id="plus"></i></button>
+                <label for="addAction" id="demo">Actions</label>
+                <button class="addAction" type="button"><i class="fas fa-plus-circle fa-2x" id="plus"></i><br></button><br>
+                <p>When the green 'plus' icon is clicked, a corresponding row for action or condition will be generated.</p><br>
+                <div class="conditions">
+                    <label for="conditions" id="demo">Conditions</label>
+                    <button class="addCondition" type="button" border="none"><i class="fas fa-plus-circle fa-2x" id="plus" aria-hidden="true"></i></button><br><br>
+                    <div class="newCondRow" id="demo" style="font-size: 20px;"><color="white">Name of Row</color><br><button type="button" name="cond0" id="minRow"><i class="fas fa-minus-circle fa-2x" id="minus" aria-hidden="true"></i></button>
+                    <input id="cond0Input" maxlength="50"><select id="cond0Select0"><option>-</option><option>T</option><option>F</option></select><select id="cond0Select1"><option>-</option><option>T</option><option>F</option></select><select id="cond0Select2"><option>-</option><option>T</option><option>F</option></select>
+                </div></div>
+                <p>The user can input the name of the row within the "Name of Row" text box.</p>
+                <p>The dropdown menus for each row allow the user to set column values to null '-', true 'T', or 'F'. All dropdown menus default to a null value when rows are created.</p><hr>
+            <h4>Building the Table</h4>
+            <p>When satisfied with table parameters, the user can click the 'Build Table' button to see their table.</p>
+            <button id="createTable" type="button">Build Table</button> 
+            <p>The table cannot be generated without a minimum of one action and one condition. The user can change information at their leisure and press the 'Build Table' button once more to see new changes.</p>
+
+
             </div><br><br>
             <center><button type="button" onclick="location.href='index.html';" id="back"><i class="fas fa-arrow-circle-left fa-2x"></i> <font color="black">Back to the Decision Table Builder</font></button></center> 
         </div>
